@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>获取节点</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div></div>
+	<div> </div>
+	<div>abc</div>
+
+	<script type="text/javascript">
+		window.onload =function(){
+			var div = document.getElementsByTagName('div');
+			var one = div.lastChild;
+			div.lastChild.nodeValue = "changed";
+
+		    
+		    
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,294 @@
+
+    <!DOCTYPE html>  
+    <html>  
+    <head>  
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >  
+        <title>请注册</title>  
+        <style type="text/css">  
+            *{margin:0;  
+             padding:0;   
+             font-size:15px;    
+             font-style:normal; }  
+            body{background:#FBFBFB;}
+            
+            .container{  
+                border:solid 1px #F1F1F1;  
+                width:650px;  
+                height:600px;  
+                background:#fff;  
+                margin:30px auto;  
+                padding-bottom:10px;  
+            }  
+            .container h2{  
+                font-size:20px;    
+                text-align:center;  
+                color:#7E7E7E;  
+                display:block;  
+                margin:30px;  
+                border:0px solid gray;  
+            }  
+            .div{  
+            margin-left:50px;
+            height: 60px;  
+            }
+            p{
+              float: left;
+
+            }
+            .w2{
+              margin-left: 45px;
+              
+            }
+            .w3{
+              margin-left: 29.5px;
+              
+            }
+            .w4{
+              margin-left: 15px;
+              
+            }
+
+            /*#Name,#Pwd1,#Pwd2,#telphone,#mail,#idcode*/
+            input{  
+            color:gray;  
+            height:40px;  
+            width:300px;  
+            font-size:13.5px;
+            border: solid 1px black; 
+           /* margin-left: 50px;*/
+              
+             
+            }  
+            #btn{  
+            height:35px;  
+            width:200px;
+            background-color: #3F89EC;    
+            margin-left: 175px;
+            font-size: 17px;
+            border-style: groove;
+            border: 1px grey;
+            color: white;   
+             
+      
+            }  
+            
+            
+            #lname,#ltelphone,#lphone,#lpass1,#lpass2,#lmail,#lidcode{
+
+            color:#FF0000;   
+            font-size:13px;  
+              
+            }  
+        </style>    
+        <script>  
+            window.onload= function(){  
+                var userName = document.getElementById("Name");  
+                var lableName = document.getElementById("lname"); 
+                var telphone = document.getElementById("telphone");  
+                var labelTelphone = document.getElementById("ltelphone");
+                var mail = document.getElementById("mail");
+                var lableMail = document.getElementById("lmail"); 
+                var password1 = document.getElementById("Pwd1");  
+                var password2 = document.getElementById("Pwd2");  
+                var labelPassword1 = document.getElementById("lpass1");  
+                var labelPassword2 = document.getElementById("lpass2");
+                var zhuce = document.getElementById("btn");
+ 
+              //给各个表单添加事件
+                userName.onblur=function () {
+                  checkUserName();
+                }
+                telphone.onblur = function(){
+                  checktelphone();
+                }
+                mail.onblur = function(){
+                  checkMail();
+                }
+                password1.onblur = function(){
+                  checkPassword1();
+                }
+                password2.onblur = function(){
+                  checkPassword2();
+                }
+
+              
+                 //检查用户名
+                function checkUserName(){  
+                    var nameValue = userName.value;  
+                    var pattern1 = /^[a-zA-Z_]\w{5,15}$/g;  
+                    if(nameValue =="" || nameValue==null){  
+                        lableName.innerHTML = "用户名不能为空!";  
+                    }  
+                    else if(pattern1.test(nameValue)){  
+                        lableName.innerHTML = "正确!";
+                        return true;  
+                    }  
+                    else{  
+                        lableName.innerHTML = "数字不能开头,长度在6-16位之间！";  
+                    }  
+                } 
+
+                //检查电话号码
+               function checktelphone(){  
+                    var telValue = telphone.value;  
+                    var pattern2 = /^1\d{10}$/;  
+                    if(pattern2.test(telValue)){  
+                        labelTelphone.innerHTML = "正确!";
+                        return true;  
+                    }  
+                    else if(telValue =="" || telValue==null){  
+                        labelTelphone.innerHTML = "手机号码不能为空!"; 
+                         
+                    }  
+                    else{  
+                        labelTelphone.innerHTML = "长度必须11位！"; 
+                         
+                    }  
+                }
+
+
+                // //封装一个函数
+                // function checktelphone(inputvalue,inputpattern,whichlable,nulltip,wrongtip){  
+                //     var telValue = telphone.value;  
+                //     var pattern2 = /^1\d{10}$/;  
+                //     if(inputpattern.test(inputvalue)){  
+                //         whichlable.innerHTML = "正确!";
+                //         return true;  
+                //     }  
+                //     else if(inputvalue =="" || inputvalue==null){  
+                //         whichlable.innerHTML = nulltip; 
+                         
+                //     }  
+                //     else{  
+                //         whichlable.innerHTML = wrongtip; 
+                         
+                //     }  
+                // }
+
+                // //关于tips的数组
+                // var sign_nulltip = "不能为空！"；
+                // var sign_wrongtips = 
+                //     [   "数字不能开头,长度在6-16位之间！",
+                //         "数字长度必须11位！",
+                //         "密码长度在6-16位之间！"
+                //     ]
+                // 
+
+
+
+                //检查邮箱
+                function checkMail(){
+                  var mailValue = mail.value;
+                  var pattern3 = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
+                  if (pattern3.test(mailValue)) {
+                    lableMail.innerHTML = "正确！";
+                        return true;
+                  }
+                  else if(mailValue == "" || mailValue == null){
+                    lableMail.innerHTML = "邮箱不能为空！";
+                  }
+                  else {
+                    lableMail.innerHTML = "请输入正确的邮箱";
+
+                  }
+                }
+
+                //检查第一次的密码格式   
+                 function checkPassword1(){  
+                    var passValue = password1.value;  
+                    var pattern4 = /^\w{6,16}$/g;  
+                    if(pattern4.test(passValue)){  
+                        labelPassword1.innerHTML = "正确!";
+                        return true;  
+                    }  
+                    else if(passValue =="" || passValue==null){  
+                        labelPassword1.innerHTML = "密码不能为空!";  
+                    }  
+                    else{  
+                        labelPassword1.innerHTML = "密码长度在6-16位之间！";  
+                    }  
+                }
+
+                //检查第二次的密码是否和第一次输入的一致  
+                function checkPassword2(){  
+                    var pass1Value = password1.value;  
+                    var pass2Value = password2.value;  
+                    if(pass2Value =="" || pass2Value==null){  
+                        labelPassword2.innerHTML = "密码不能为空!";  
+                    }  
+                    else if(pass1Value == pass2Value){  
+                        labelPassword2.innerHTML = "输入正确!";
+                        return true;  
+                    }  
+                    else if(pass1Value!=pass2Value){  
+                        labelPassword2.innerHTML = "两次密码输入不一致!";  
+                    }  
+                    else{  
+                        labelPassword2.innerHTML = "密码长度在6-16位之间！";  
+                    }  
+                }
+
+                //所有的表单验证正确后，方可提交表单
+                zhuce.onclick = function(){
+                  var userName= checkUserName();
+                  var phone = checktelphone();
+                  var mail = checkMail();
+                  var password1 = checkPassword1() ;
+                  var password2 = checkPassword2();
+
+
+                   if (userName && phone && mail && password1 && password2) {
+                    alert("注册成功");
+                  } 
+                  else {
+                    alert("请完整填写信息！");
+                  }
+                
+                }
+                
+                
+                
+                
+                
+                
+               
+            }  
+        </script>  
+    </head>  
+    <body>  
+        <div class="container">  
+            <h2>注册新账号</h2>  
+            <div class="div">  
+              <p>用户名 </p><input name="userName" class="w3" type = "text" placeholder = "输入用户名（字母和数字的组合）" id = "Name"/>  
+            <label id="lname"></label>
+            </div>
+            <div class="div">
+            <p>手机号码</p><input class="w4" type="text" placeholder="请输入手机号，用于登陆和找回密码" id="telphone"/>
+             <label id="ltelphone"></label>
+            </div>
+            <div class="div">
+             <p>邮箱</p><input class="w2" type="text" placeholder="输入邮箱，用于登陆和密码找回" id="mail"/> <label id="lmail"></label> 
+            </div>
+            <div class="div"> 
+              <p>密码</p><input class="w2" type = "text" placeholder = "输入密码" id = "Pwd1"/>  
+            <label id="lpass1"></label>
+            </div>
+            <div class="div">  
+              <p>确认密码</p><input class="w4" type = "text" placeholder = "再次输入密码" id = "Pwd2"/>  
+            <label id="lpass2"></label> 
+            </div>
+            
+            <div>
+                 
+              
+                
+             <input type="button" value="注册" id="btn"/>  
+               
+            </div>  
+              
+        </div>  
+          
+    </body>  
+    </html>  
+
+

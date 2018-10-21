@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+
+</body>
+	<script type="text/javascript">
+		// const obj = {
+		// 	foo: 123,
+		// 	get bar() { return 'abc'}
+		// };
+		// console.log(Object.getOwnPropertyDescri
+
+		// let stua1 = {name : '张', score: 59};
+		// let stua2 = {name : '李', score: 89};
+		// let handler = {
+		// 	has(target, prope) {
+		// 		if (prope === 'score' && target[prope] < 60) {
+		// 			console.log(`${target.name} 不及格`);
+		// 			return false;
+		// 		}
+		// 		return prope in target;
+		// 	}
+		// }
+
+		// let oproxy1 = new Proxy(stua1, handler);
+		// let oproxy2 = new Proxy(stua2, handler);
+
+		// console.log('score' in oproxy1);
+		// console.log('score' in oproxy2);
+
+		// for(let a in oproxy1) {
+		// 	console.log(oproxy1[a]);
+		// }
+
+		// for(let b in oproxy2) {
+		// 	console.log(oproxy2[b]);
+		// }
+
+		// 类部署Iterator接口的写法
+		// class RangeIterator {
+		// 	constructor(start,stop){
+		// 		this.value = start;
+		// 		this.stop = stop;
+		// 	}
+		// 	[Symbol.iterator] () {return this;}
+
+		// 	next() {
+		// 		var value = this.value;
+		// 		if (value < this.stop) {
+		// 			this.value++;
+		// 			return{done: false, value: value};
+		// 		}
+
+		// 		return {done: true, value: undefined};
+		// 	}
+		// }
+
+		// function range(start, stop) {
+		// 	return new RangeIterator(start, stop);
+		// }
+
+		// for(var value of range(1, 3)){
+		// 	console.log(value);
+		// }
+
+		// //通过遍历器实现指针结构
+		// function Obj(value) {
+		// 	this.value = value;
+		// 	this.next = null;
+
+		// }
+
+		// Obj.prototype[Symbol.iterator] = function() {
+		// 	var iterator = { next: next };
+		// 	var current = this;
+
+		// 	function next() {
+		// 		if (current) {
+		// 			var value = current.value;
+		// 			current = current.next;
+		// 			return { done: false, value: value };
+		// 		} else {
+		// 			return { done: true};
+		// 		}
+		// 	}
+		// 	return iterator;
+		// }
+
+		// var one = new Obj(1);
+		// var two = new Obj(2);
+		// var three = new Obj(3);
+
+		// one.next = two;
+		// two.next = three;
+
+		// for(var i of one) {
+		// 	console.log(i);s
+		// }
+
+		
+
+		//
+		// let obj = {
+		// 	data: ['hello', 'world'],
+		// 	[Symbol.iterator] () {
+		// 		const self = this;
+		// 		let index = 0;
+		// 		return {
+		// 			next() {
+		// 				if (index < self.data.length) {
+		// 					return {
+		// 						value: self.data[index++],
+		// 						done: false
+		// 					};
+		// 				} else {
+		// 					return { value: undefined, done: true};
+		// 				}
+		// 			}
+		// 		};
+		// 	}
+		// };
+
+
+		 var ticking = true;
+		// var clock = function() {
+		// 	if (ticking) 
+		// 		console.log('Tick!');
+		// 	else
+		// 		console.log('Tock!');
+		// 	ticking = !ticking;
+		// }
+		var clock = function* () {
+			while (true) {
+				console.log('Tick!');
+				yield;
+				console.log('Tock!');
+				yield;
+			}
+		};
+
+
+
+
+
+		
+
+
+		
+		
+
+	</script>
+
+
+</html>

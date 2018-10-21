@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		* {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+        
+        body {
+            padding: 20px;
+        }
+        
+        #container {
+            position: relative;
+            width: 975px;
+            height: 350px;
+            border: 3px solid #333;
+            overflow: hidden;
+        }
+        
+        #list {
+            position: absolute;
+            z-index: 1;
+            width: 8875px;
+            height: 400px;
+        }
+        
+        #list img {
+            float: left;
+            width: 975px;
+            height: 350px;
+        }
+        
+        
+        
+        #buttons  {
+            width: 975px;
+            height: 50px;
+           
+        }
+        
+        .ibitems {
+            
+            float: left;
+            width: 139.25px;
+            text-align: center;
+            padding-top: 10px;
+            height: 40px;
+            font-size: 15px;
+            color: #525252;
+            background-color: #FFFFFF;
+   
+}
+        .ibitemson {
+          /*  display: block;*/
+            float: left;
+            width: 139.25px;
+            text-align: center;
+            padding-top: 10px;
+            height: 40px;
+            font-size: 15px;
+            color: #FF5500;
+            background-color: #FFFFFF;
+            font-weight: bold;
+            border-bottom: solid #FF5500 5px;
+            
+        }
+        .ibitems:hover{
+            color: #FF5500;
+            /*font-weight: bold;
+            border-bottom:solid #FF5500 5px;*/
+        }
+        
+        .arrow {
+            position: absolute;
+            top: 180px;
+            z-index: 2;
+            display: none;
+            width: 40px;
+            height: 40px;
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 39px;
+            text-align: center;
+            color: #fff;
+            background-color: RGBA(0, 0, 0, .3);
+            cursor: pointer;
+        }
+        
+        .arrow:hover {
+            background-color: RGBA(0, 0, 0, .7);
+        }
+        
+        #container:hover .arrow {
+            display: block;
+        }
+        
+        #prev {
+            left: 20px;
+        }
+        
+        #next {
+            right: 20px;
+        }
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+            var list = document.getElementById('list');
+            var prev = document.getElementById('prev');
+            var next = document.getElementById('next');
+
+           //切换图片时的函数，改变偏移量
+            function animate(offset) {
+                
+                var newLeft = parseInt(list.style.left) + offset;
+                list.style.left = newLeft + 'px';
+                if(newLeft<-6825){
+                   list.style.left = -975 + 'px';
+                }
+                if(newLeft>-975){
+                   list.style.left = -6825 + 'px';
+                }
+            }
+
+          //点击向前切换一张的按钮
+            prev.onclick = function() {             
+                animate(975);
+            }
+            //点击向后一张切换的按钮
+            next.onclick = function() {  
+                animate(-975);
+            }
+
+            //定义一个定时器
+            var timer;
+            //定义一个函数，每隔一段时间调用next的onclick事件，自动轮播图片
+            function play() {
+               timer = setInterval(function () {
+               next.onclick()
+            }, 1500)
+            }
+            //调用此函数
+            play();
+            var container = document.getElementById('container');
+ 
+            //定义一个清除定时器的函数，使鼠标停在图片上时停止图片的自动播放
+            function stop() {
+                clearInterval(timer);
+            }
+
+            //鼠标移出和移入图片时分别调用不同的函数
+            container.onmouseover = stop;
+            container.onmouseout = play;
+
+            //取得需要和图片一起自动播放的部分
+            var buttons = document.getElementById('buttons').getElementsByTagName('span');
+            var index = 1;
+
+            function buttonsShow() {
+                
+                for (var i = 0; i < buttons.length; i++) {
+                    if (buttons[i].className == 'ibitemson') {
+                        buttons[i].className = 'ibitems';
+                        break;
+                    }
+                }
+                
+                    
+                buttons[index - 1].className = 'ibitemson';
+                    
+            }
+
+            prev.onclick = function() {
+                index -= 1;
+                //由于上边定时器的作用，index会一直递减下去，我们只有7个小圆点，所以需要做出判断
+                if (index < 1) {
+                    index = 7;
+                }
+                buttonsShow();
+                animate(975);
+            }
+            next.onclick = function() {
+                //由于上边定时器的作用，index会一直递增下去，我们只有7个小圆点，所以需要做出判断
+                index += 1;
+                if (index > 7) {
+                    index = 1;
+                }
+                buttonsShow();
+                animate(-975);
+            }
+            //  for (var i = 0; i < buttons.length; i++) {
+            // buttons[i].onclick = function () {
+            //     // 在浏览器的控制台打印一下，看看结果
+            //     console.log(i);
+
+            //     /* 偏移量获取：这里获得鼠标移动到小圆点的位置，用this把index绑定到对象buttons[i]上，去谷歌this的用法  */
+            //      由于这里的index是自定义属性，需要用到getAttribute()这个DOM2级方法，去获取自定义index的属性
+            //     var clickIndex = parseInt(this.getAttribute('index'));
+            //     var offset = 975 * (index - clickIndex);
+            //     animate(offset); //存放鼠标点击后的位置，用于小圆点的正常显示 
+            //     index = clickIndex;
+            //     buttonsShow();
+            //     }
+            // }
+           
+
+
+        }
+	</script>
+</head>
+<body>
+	<div id="container">
+         <div id="list" style="left: -975px;">
+              
+             <img src="http://image.uisdc.com/wp-content/uploads/2018/01/uisdc-bbanner-1025.jpg" alt="1" />
+              <img src="http://image.uisdc.com/wp-content/uploads/2018/01/uisdc-bbanner-1025.jpg" alt="1" />
+              
+              <img src="http://image.uisdc.com/wp-content/uploads/2018/01/uisdc-bbanner-10252.jpg" alt="2" />
+              <img src="http://image.uisdc.com/wp-content/uploads/2018/01/uisdc-bbanner-10253.jpg" alt="3" />
+              <img src="http://image.uisdc.com/wp-content/uploads/2017/12/uisdc-bbanner-1213.jpg" alt="4" />
+              <img src="http://image.uisdc.com/wp-content/uploads/2018/01/uisdc-bbanner-1813.jpg" alt="5" />
+              <img src="http://image.uisdc.com/wp-content/uploads/2017/12/uisdc-bbanner-1201.jpg" alt="6" />
+              <img src="http://image.uisdc.com/wp-content/uploads/2017/11/uisdc-banner-11037.jpg" alt="7"/>
+              <img src="http://image.uisdc.com/wp-content/uploads/2017/11/uisdc-banner-11037.jpg" alt="7"/>
+         </div>
+         
+         <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+         <a href="javascript:;" id="next" class="arrow">&gt;</a>
+     </div>
+     <div id="buttons">
+            <span class="ibitems" index="1">UI设计</span>
+            <span class="ibitems" index="2">行业趋势</span>
+            <span class="ibitems" index="3">动效设计</span>
+            <span class="ibitems" index="4">作品集</span>
+            <span class="ibitems" index="5">求职面试</span>
+            <span class="ibitems" index="6">灵感宝库</span>
+            <span class="ibitems" index="7">优设读报</span>
+
+            
+    </div>
+
+</body>
+</html>

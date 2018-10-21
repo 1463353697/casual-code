@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+    li {
+      display: inline-block;
+      width: 80px;
+      text-align: center;
+      border: 1px solid black;
+    }
+    li:hover {
+      background: orange;
+    }
+    div {
+      display: none;
+    }
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>星期一</li>
+    <li>星期二</li>
+    <li>星期三</li>
+    <li>星期四</li>
+    <li>星期五</li>
+  </ul>
+  <div class="show">语文</div>
+  <div>数学</div>
+  <div>英语</div>
+  <div>体育</div>
+  <div>美术</div>
+  <script type="text/javascript">
+    (function() {
+      var list = document.getElementsByTagName('li'),
+      div = document.getElementsByTagName('div');
+      for(var i = 0, len = list.length; i < len; i++) {
+        list[i].index = i;
+        list[i].onmouseover = function() {
+          for(var j = 0; j < len; j++){
+            div[j].className = '';
+          }
+        div[this.index].className = 'show';
+        }
+      }
+    })()
+  </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BBS</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	.showdiv {
+		height: 40px;
+		width: 500px;
+		background-color: pink;
+		margin-top: 20px;
+	}
+	.hidediv {
+		height: 80px;
+		width: 500px;
+		background-color: yellow;
+		margin-top: 20px;
+		}
+	#showdiv1,#showdiv2,#showdiv3{
+		display: block;
+	}
+	 #hidediv1,#hidediv2,#hidediv3 {
+		display: none;
+	}
+	.shop1 {
+		float: left;
+		height: 20px;
+		width: 50px;
+		border:solid #E5E5E5 1px;
+	    border-radius: 5px 5px 5px 0px;
+
+	}
+	.shop1:hover {
+		border-bottom: 0px;
+	}
+
+		
+	</style>
+	
+</head>
+<body>
+	<!-- <div id="showdiv1" class="showdiv"></div>
+	<div id="hidediv1" class="hidediv"></div>
+	<div id="showdiv2" class="showdiv"></div>
+	<div id="hidediv2" class="hidediv"></div>
+	<div id="showdiv3" class="showdiv"></div>
+	<div id="hidediv3" class="hidediv"></div> -->
+
+
+	<div class="shop1"></div>
+	<div class="shop1"></div>
+	<div class="shop1"></div>
+	
+
+
+
+
+
+	<script type="text/javascript">
+		var showdiv1 = document.getElementById('showdiv1');
+		var showdiv2 = document.getElementById('showdiv2');
+		var showdiv3 = document.getElementById('showdiv3');
+		var hidediv1 = document.getElementById('hidediv1');
+		var hidediv2 = document.getElementById('hidediv2');
+		var hidediv3 = document.getElementById('hidediv3');
+		showdiv1.onmouseover = function(){
+			showdiv1.id = "hidediv1";
+			hidediv1.id = "showdiv1";
+			
+		}
+		// showdiv1.onmouseout = function(){
+		// 	showdiv1.id = "showdiv1";
+		// 	hidediv1.id = "hidediv1";
+		// }
+		showdiv2.onmouseover = function(){
+			showdiv2.id = "hidediv2";
+			hidediv2.id = "showdiv2";
+			
+		}
+		showdiv3.onmouseover = function(){
+			showdiv3.id = "hidediv3";
+			hidediv3.id = "showdiv3";
+			
+		}
+		
+		
+		
+
+		
+
+		
+	</script>
+
+</body>
+</html>

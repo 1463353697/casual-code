@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+*{
+	margin: 0px;
+	padding: 0px;
+}
+.nav1{
+	height: 33px;
+	width: 270px;
+	background-color: #F2F2F2;
+	
+}
+.nav1 li {
+	float: left;
+	text-decoration: none;
+	list-style: none;
+}
+.nav1 li a{
+	height: 33px;
+	padding: 0 21px;
+	display: block;
+	color: black;
+	font-size: 12px;
+	list-style: none;
+	text-decoration: none;
+	line-height: 30px;
+}
+.nav1 ul>li>a:hover{
+	background-color: #FE4800;
+	color: #fff;
+}
+.contentfirst {
+ 	width: 270px;
+ 	height: 350px;
+ 	display: none;
+ 	
+}
+/*.contentfirst {
+	display: none;
+}*/
+.contentin {
+ 	display: block;
+}
+/*.contentfirst li {
+	margin-left:20px; 
+}*/
+.newcontent div{
+	font-size: 13px;
+	background-color: #FFFFFF;
+}
+.contents{
+	display: block;
+	margin-bottom: 15px;
+	color: #0DA4D3;
+	text-decoration: none;
+}
+#content1 a:hover{
+	color: #525252;
+}
+#content2 a:hover{
+	color: #525252;
+}
+#content3 a:hover{
+	color: #525252;
+}
+.newdate {
+	margin-right: 0px;
+	font-size: 12px;
+	color: #999999;
+	float: right;
+}
+
+
+	</style>
+</head>
+<body>
+	<div class="nav1">
+                <ul>
+                    <li id="li1"><a href="#" onMouseOver="showdiv('1')">设计文章</a></li>
+                    <li id="li2"><a href="#" onMouseOver="showdiv('2')">职业规划</a></li>
+                    <li id="li3"><a href="#" onMouseOver="showdiv('3')">优设专题</a></li>
+                </ul>
+                
+            </div>
+            <div class="newcontent">
+                <div id="content1" class="contentin contentfirst">
+                    
+                </div>
+                <div id="content2" class="contentfirst"></div>
+                <div id="content3" class="contentfirst"></div>
+            </div>
+
+<script type="text/javascript">
+function showdiv(s){
+    if (s=="1") {
+        document.getElementById("content1").className="contentin contentfirst";
+        document.getElementById("content2").className="contentfirst";
+        document.getElementById("content3").className="contentfirst";
+    }
+
+    else if (s=="2") {
+        document.getElementById("content1").className="contentfirst";
+        document.getElementById("content2").className="contentin contentfirst";
+        document.getElementById("content3").className="contentfirst";
+    }
+
+    else{
+        document.getElementById("content1").className="contentfirst";
+        document.getElementById("content2").className="contentfirst";
+        document.getElementById("content3").className="contentin contentfirst";
+        
+    }
+}
+
+var newsblock1 ={
+	"design":[
+	    "1.饿了么高级设计师：界面视觉设计",
+	    "2.内部教程！超详细的支付宝设计规",
+	    "3.一个针对女性用户的照片编辑软",
+	    "4.反馈机制这样设计，才能不让用户",
+	    "5.超全面的 APP 动效设计必备知识",
+	    "6.这7个技巧，帮你搞定网页中背景",
+	    "7.腾讯实战经验！如何搭建有效的设",
+	    "8.内部教程！超详细的支付宝设计规",
+	    "9.平面高手课堂！系统梳理 LOGO 里",
+	    "10.这个APP的UX设计，把订购汉堡玩"
+	]
+
+}	
+var newsblock2 = {
+	"plan":[
+	    "1.准备离职了，公司决定加薪留住",
+	    "2.超详细的 2018 年设计师面试指南",
+	    "3.金三银四求职季，我们为你列了最",
+	    "4.36氪产品总监：求职应该怎么问答",
+	    "5.想转职成为用户体验设计师？你得",
+	    "6.系列三部曲！中国式草根设计师的",
+	    "7.系列三部曲！中国式草根设计师的",
+	    "8.这些好习惯塑造了优秀而专业的用",
+	    "9.成功通过Uber 的设计挑战面试后，",
+	    "10.设计稿总监都通过了，前端哥哥"
+	]
+}
+var newsblock3 = {
+	"subject":[
+	    "1.优设新年专题！2018年最值得阅读",
+	    "2.优设年度盘点专题！2017年最受欢",
+	    "3.优设年度盘点专题！2017年最受欢",
+	    "4.优设年度盘点专题！2017年最受欢",
+	    "5.优设年度盘点专题！2017年最受欢",
+	    "6.超全面！海报设计零基础学习指南",
+	    "7.从信黑体到腾讯字体，优设专访顶",
+	    "8.设计师必读！从零开始掌握",
+	    "9.超全面的PPT 零基础自学指南！",
+	    "10.独家福利！零基础也能快速抠图的"
+	]
+}
+var newsdate1 = {
+	"date1":[
+        "04/11",
+        "04/11",
+        "04/11",
+        "04/11",
+        "04/10",
+        "04/10",
+        "04/10",
+        "04/10",
+        "04/09",
+        "04/08",
+	]
+	
+}
+var newsdate2 = {
+	"date2":[
+        "04/11",
+        "04/04",
+        "03/07",
+        "02/17",
+        "01/26",
+        "01/25",
+        "01/23",
+        "01/23",
+        "01/05",
+        "12/20"
+	]
+}
+
+var newsdate3 = {
+	"date3":[
+        "01/09",
+        "12/28",
+        "12/27",
+        "12/18",
+        "12/17",
+        "12/03",
+        "11/22",
+        "11/19",
+        "11/19",
+        "11/18"
+	]
+}
+[{
+		"img":"imgs/2.png",
+		"list1":"用户1",
+		"list2":"人气1"
+}，{
+		"img":"imgs/3.png",
+		"list1":"用户3",
+		"list2":"人气3"
+}]
+{
+	"imgs":[
+		"https://raw.githubusercontent.com/wlfsmile/learnDemo/master/100du/img/content/hot1.gif",
+		"imgs/2.png",
+		"imgs/3.png",
+		"imgs/4.png",
+		"imgs/5.png",
+		"imgs/6.png",
+		"imgs/7.png",
+		"imgs/8.png",
+		"imgs/9.png",
+		"imgs/10.png",
+		"imgs/11.png"
+
+	]
+}
+{
+	"list1":[
+		"用户1",
+		"用户名：性感宝贝",
+		"用户3",
+		"用户4",
+		"用户5",
+		"用户6",
+		"用户7",
+		"用户8",
+		"用户9",
+		"用户10"
+		
+	]
+}
+{
+	"list2":[
+		"人气1",
+		"人气13478",
+		"人气3",
+		"人气4",
+		"人气5",
+		"人气6",
+		"人气7",
+		"人气8",
+		"人气9",
+		"人气10"
+	]
+}
+{
+	"list3":"区域：朝阳CBD"
+}
+// "person1": [
+// 	"用户1",
+// 	"人气1"
+// ]
+// "person2": [
+// 	"用户名：性感宝贝",
+// 	"区域：朝阳CBD",
+// 	"人气：123987"
+// ]
+// "person3": [
+// 	"用户3",
+// 	"人气3"
+// ]
+// "person4": [
+// 	"用户4",
+// 	"人气4"
+// ]
+// "person5": [
+// 	"用户5",
+// 	"人气5"
+// ]
+// "person6": [
+// 	"用户6",
+// 	"人气6"
+// ]
+// "person7": [
+// 	"用户7",
+// 	"人气7"
+// ]
+// "person8": [
+// 	"用户8",
+// 	"人气8"
+// ]
+// "person9": [
+// 	"用户9",
+// 	"人气9"
+// ]
+// "person10": [
+// 	"用户10",
+// 	"人气10"
+// ]
+// "person11": [
+// 	"用户11",
+// 	"人气11"
+// ]
+
+
+
+
+document.getElementById("content1").innerHTML =
+"<a class='newdate'>"+newsdate1.date1[0]+"</a>"
+ + "<a class='contents' href='https://www.uisdc.com/interface-vision-design-5-elements' target='-blank' >"+newsblock1.design[0]+"</a>"
+ + "<a class='newdate'>"+newsdate1.date1[1]+"</a>" 
+ + "<a class='contents' href='https://www.uisdc.com/alipay-design-specificatio-format' target='-blank' >"+newsblock1.design[1]+"</a>" 
+ + "<a class='newdate'>"+newsdate1.date1[2]+"</a>" 
+ + "<a class='contents' href='https://www.uisdc.com/case-study-cuteen-uiux-design' target='-blank' >"+newsblock1.design[2]+"</a>"
+ + "<a class='newdate'>"+newsdate1.date1[3]+"</a>"  
+ + "<a class='contents' href='https://www.uisdc.com/feedback-mechanism-design' target='-blank' >"+newsblock1.design[3]+"</a>"
+ + "<a class='newdate'>"+newsdate1.date1[4]+"</a>"  
+ + "<a class='contents' href='https://www.uisdc.com/app-dynamic-design-knowledge-summary' target='-blank' >"+newsblock1.design[4]+"</a>"
+ + "<a class='newdate'>"+newsdate1.date1[5]+"</a>"  
+ + "<a class='contents' href='https://www.uisdc.com/background-textures-in-webdesign' target='-blank' >"+newsblock1.design[5]+"</a>"
+ + "<a class='newdate'>"+newsdate1.date1[6]+"</a>"  
+ + "<a class='contents' href='https://www.uisdc.com/tencent-combat-build-effective-design-specifications' target='-blank' >"+newsblock1.design[6]+"</a>"
+ + "<a class='newdate'>"+newsdate1.date1[7]+"</a>" 
+ + "<a class='contents' href='https://www.uisdc.com/alipay-design-specificatio-offline-font' target='-blank' >"+newsblock1.design[7]+"</a>" 
+ + "<a class='newdate'>"+newsdate1.date1[8]+"</a>" 
+ + "<a class='contents' href='https://www.uisdc.com/positive-and-negative-shape-in-logo' target='-blank' >"+newsblock1.design[8]+"</a>"
+ + "<a class='newdate'>"+newsdate1.date1[9]+"</a>"  
+ + "<a class='contents' href='https://www.uisdc.com/case-study-tasty-burger' target='-blank' >"+newsblock1.design[9]+"</a>"
+  
+document.getElementById("content2").innerHTML =
+"<a class='newdate'>"+newsdate2.date2[0]+"</a>"
+ + "<a class='contents' href='https://www.uisdc.com/2018-uisdc-web-developer-6' target='-blank' >"+newsblock2.plan[0]+"</a>"
+ + "<a class='newdate'>"+newsdate2.date2[1]+"</a>"
+ + "<a class='contents' href='https://www.uisdc.com/detailed-2018-designer-interview-guide' target='-blank' >"+newsblock2.plan[1]+"</a>"
+ + "<a class='newdate'>"+newsdate2.date2[2]+"</a>"
+ + "<a class='contents' href='https://www.uisdc.com/20-interview-questions-and-answers' target='-blank' >"+newsblock2.plan[2]+"</a>"
+ + "<a class='newdate'>"+newsdate2.date2[3]+"</a>"
+ + "<a class='contents' href='https://www.uisdc.com/interview-answer-interviewer-scoring' target='-blank' >"+newsblock2.plan[3]+"</a>"
+ + "<a class='newdate'>"+newsdate2.date2[4]+"</a>" 
+ + "<a class='contents' href='https://www.uisdc.com/7-ways-jump-into-ux-design' target='-blank' >"+newsblock2.plan[4]+"</a>"
+ + "<a class='newdate'>"+newsdate2.date2[5]+"</a>"
+ + "<a class='contents' href='https://www.uisdc.com/designers-work-predicament' target='-blank' >"+newsblock2.plan[5]+"</a>"
+ + "<a class='newdate'>"+newsdate2.date2[6]+"</a>" 
+ + "<a class='contents' href='https://www.uisdc.com/wechat-store-redesign-experience' target='-blank' >"+newsblock2.plan[6]+"</a>" 
+ + "<a class='newdate'>"+newsdate2.date2[7]+"</a>"
+ + "<a class='contents' href='https://www.uisdc.com/professional-ux-designer-useful-habits' target='-blank' >"+newsblock2.plan[7]+"</a>"
+ + "<a class='newdate'>"+newsdate2.date2[8]+"</a>" 
+ + "<a class='contents' href='https://www.uisdc.com/uber-interview-method' target='-blank' >"+newsblock2.plan[8]+"</a>"
+ + "<a class='newdate'>"+newsdate2.date2[9]+"</a>" 
+ + "<a class='contents' href='https://www.uisdc.com/2017-uisdc-web-developer-5' target='-blank' >"+newsblock2.plan[9]+"</a>"
+
+
+document.getElementById("content3").innerHTML = 
+  "<a class='newdate'>"+newsdate1.date1[0]+"</a>"
++ "<a class='contents' href='https://www.uisdc.com/uisdc-2018-design-booklist' target='-blank' >"+newsblock3.subject[0]+"</a>"
++ "<a class='newdate'>"+newsdate1.date1[1]+"</a>" 
++ "<a class='contents' href='https://www.uisdc.com/2017-popular-design-style'  target='-blank'>"+newsblock3.subject[1]+"</a>"
++ "<a class='newdate'>"+newsdate1.date1[2]+"</a>" 
++ "<a class='contents' href='https://www.uisdc.com/2017-popular-ui-design' target='-blank' >"+newsblock3.subject[2]+"</a>"
++ "<a class='newdate'>"+newsdate1.date1[3]+"</a>" 
++ "<a class='contents' href='https://www.uisdc.com/2017-popular-e-commerce-design' target='-blank' >"+newsblock3.subject[3]+"</a>"
++ "<a class='newdate'>"+newsdate1.date1[4]+"</a>" 
++ "<a class='contents' href='https://www.uisdc.com/2017-popular-interesting-design' target='-blank' >"+newsblock3.subject[4]+"</a>"
++ "<a class='newdate'>"+newsdate1.date1[5]+"</a>" 
++ "<a class='contents' href='https://www.uisdc.com/poster-design-learning-guide' target='-blank' >"+newsblock3.subject[5]+"</a>"
++ "<a class='newdate'>"+newsdate1.date1[6]+"</a>" 
++ "<a class='contents' href='https://www.uisdc.com/uisdc-designer-interview-julius' target='-blank' >"+newsblock3.subject[6]+"</a>"
++ "<a class='newdate'>"+newsdate1.date1[7]+"</a>" 
++ "<a class='contents' href='https://www.uisdc.com/play-dribbble-method' target='-blank' >"+newsblock3.subject[7]+"</a>"
++ "<a class='newdate'>"+newsdate1.date1[8]+"</a>" 
++ "<a class='contents' href='https://www.uisdc.com/ppt-learn-guide' target='-blank' >"+newsblock3.subject[8]+"</a>"
++ "<a class='newdate'>"+newsdate1.date1[9]+"</a>" 
++ "<a class='contents' href='https://www.uisdc.com/cutout-png-artifact' target='-blank' >"+newsblock3.subject[9]+"</a>"
+
+</script>	
+</body>

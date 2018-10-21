@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>登陆</title>
+    <style media="screen" type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        position: absolute;
+        background: pink;
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box">
+    
+    </div>
+  </body>
+  <script type="text/javascript">
+    // 首先要找到鼠标在屏幕中的位置；还要找到鼠标早物体中的位置
+    window.onload = function() {
+      var box = document.getElementById('box');
+      box.onmousedown = function(e) {
+        box.style.cursor = 'move';
+        var dis_top = parseInt(e.clientY) - parseInt(getStyle(box, 'top')),
+        dis_left = parseInt(e.clientX) - parseInt(getStyle(box, 'left'));
+        box.onmousemove = function(e) {
+          // 只有在按下鼠标的情况下才能够移动
+          if (box.style.cursor != 'move') return;
+          box.style.left = parseInt(e.clientX) - dis_left + 'px';
+          box.style.top = parseInt(e.clientY) - dis_top + 'px';
+          var _top = parseInt(box.style.top),
+          _left = parseInt(box.style.left);
+          console.log(window.innerWidth);
+          // 获取屏幕的宽高   IE9+
+          if (_top <= 0) box.style.top = 0 + 'px';
+          if (_top >= parseInt(window.innerHeight) - 300) box.style.top = parseInt(window.innerHeight) - 300 + 'px';
+          if (_left <= 0) box.style.left = 0 + 'px';
+          if (_left >= parseInt(window.innerWidth) - 300) box.style.left = parseInt(window.innerWidth) - 300 + 'px';
+        }
+      }
+      box.onmouseup = function() {
+        box.style.cursor = 'default';
+      }
+    }
+    function getStyle(ele, attr) {
+      //兼容IE
+      if (ele.currentStyle) {
+        return ele.currentStyle[attr];
+      } else {
+        return window.getComputedStyle(ele, null)[attr];
+      }
+    }
+  </script>
+</html>

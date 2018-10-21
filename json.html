@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	#newsdiv {
+		width: 270px;
+		height: 325px;
+		background-color: pink;
+	}
+	/*.newshead {
+		width: 270px;
+		height: 36px;
+
+
+	}*/
+	.newshead {
+		display: block;
+		text-decoration: none;
+		
+		width: 89px;
+		height: 30px;
+		padding-top: 6px;
+		float: left;
+		border-right: solid 0.5px #EEEEEE;
+		background-color: #F8F8F8;
+		color: #525252;
+		text-align: center;
+	}
+	.newshead:hover{
+		background-color: #FE4800;
+		color: white;
+	}
+	#newsblock1{
+		/*display: none;*/
+		font-size: 13px;
+		background-color: #FFFFFF;
+	}
+	#newsblock1 a {
+		display: block;
+		margin-bottom: 15px;
+		color: #0DA4D3;
+		text-decoration: none;
+	}
+	#newsblock1 a:hover{
+		color: #525252;
+	}
+	#newsblock2{
+		display: none;
+		font-size: 12px;
+		background-color: #FFFFFF;
+	}
+	#newsblock3{
+		display: none;
+		font-size: 12px;
+		background-color: #FFFFFF;
+	}
+
+		
+	</style>
+	
+	
+</head>
+<body>
+	<!-- <div id="newsblock1"></div> -->
+
+	<div id="newsdiv">
+		
+		<a href="#" class="newshead">设计文章</a>
+		<a href="#" class="newshead" >职场规划</a>
+		<a href="#" class="newshead" >优设专题</a>
+		<div id="newsblock1"></div>
+		<div id="newsblock2"></div>
+		<div id="newsblock3"></div>
+		
+	</div>
+
+</body>
+<script language="javascript" type="text/javascript">
+
+
+[
+   {"design": [
+	    "1.阿里设计师：如何用动效创新方法",
+	    "2.版本控制工具 Abstract 是如何提升",
+	    "3.腾讯干货！虚拟To B支付设计研究",
+	    "4.用户体验和可用性之间的联系和差",
+	    "5.学会这简单几招，字体设计也能萌",
+	    "6.腾讯干货！虚拟To B支付设计研究",
+	    "7.如何打造极简设计？来看英才APP",
+	    "8.速度是移动端网页的灵魂，这些策",
+	    "9.如何巧用线条，让你的Banner 更",
+	    "10.我在网易游戏做交互实习这段时"
+	]
+
+    },
+
+
+
+   {
+	
+
+	"plan": [
+	    "1.36氪产品总监：求职应该怎么问答",
+	    "2.想转职成为用户体验设计师？你得",
+	    "3.系列三部曲！中国式草根设计师的",
+	    "4.系列三部曲！中国式草根设计师的",
+	    "5.这些好习惯塑造了优秀而专业的用",
+	    "6.成功通过Uber 的设计挑战面试后",
+	    "7.设计稿总监都通过了，前端哥哥却",
+	    "8.全新案例！优设零基础学AI 插画第",
+	    "9.优设木鼠UI特训班第五期，最后27",
+	    "10.2018年，每个有追求的设计师都需"
+	]
+},
+
+
+
+{	
+
+
+	"subject": [
+	    "1.优设新年专题！2018年最值得阅读",
+	    "2.优设年度盘点专题！2017年最受欢",
+	    "3.优设年度盘点专题！2017年最受欢",
+	    "4.优设年度盘点专题！2017年最受欢",
+	    "5.优设年度盘点专题！2017年最受欢",
+	    "6.超全面！海报设计零基础学习指南",
+	    "7.从信黑体到腾讯字体，优设专访顶",
+	    "8.设计师必读！从零开始掌握",
+	    "9.超全面的PPT 零基础自学指南！",
+	    "10.独家福利！零基础也能快速抠图的"
+	]
+}
+]
+
+     // //显示 
+     // function showDiv(divName) 
+     // { 
+     // document.getElementById(divName).style.display = "block"; 
+     // } 
+     // //隐藏 
+     // function hiddenDiv(divName) 
+     // { 
+     // document.getElementById(divName).style.display = "none"; 
+     // } 
+
+
+document.getElementById("newsblock1").innerHTML = "<a>"+design[0]+"</a>" 
+
+
+		
+	</script>
+</html>

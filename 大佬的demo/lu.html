@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>                     
+</head>
+<body>
+	<script type="text/javascript">
+		//判断年份1900--
+		//判断月份 1-12
+		//每个月有多少天并且是否在范围之内
+		window.onload = function(){
+			//判断年份
+			function judgeYear() {
+				var y = window.prompt("输入你的年份");
+				if (parseInt(y)<1900 || y > new Date().getFullYear() ) {
+					alert('wrong');
+				}	//判断输入的年份是否在1900到2017之间
+				else if (y%400==0||(y%4==0 && y%100 != 0)) {
+					return {
+						year: y,
+						isleapYear: true
+					};		//闰年
+				}
+				else {
+					return {
+						year:y,
+						isleapYear: false
+					};	//不是闰年
+				}
+				return arguments.callee();	//递归调用，如果不符合条件继续执行
+			};
+			//判断月份
+			function judgeMonth() {
+				var m = window.prompt('输入你的月份');
+				var month = parseInt(m);
+				if (month<1 || month > 12 ) {
+					alert('wrong');	
+				}	//判断输入的月份是否合法
+				else {
+					return month;	//返回月份
+				}
+				return arguments.callee();	//递归调用
+			};
+			//获得具体年月日
+			function judgeDate() {
+				var yearObj = judgeYear(),	//获得函数返回的值
+				year = yearObj.year;		//获得年份
+				var February = yearObj.isleapYear ? 29 : 28,	//获取二月的天数
+				monthArray = [31,February,31,30,31,30,31,31,30,31,30,31];	//每个月的天数
+				var month = judgeMonth();	//获得月份
+
+				function judgeDay() {
+					var d = window.prompt('多少号出生？'),
+					day = parseInt(d);
+					if (day<0 || day > monthArray[month-1]) {
+						alert('wrong!');
+					} else {
+						return day;
+					}
+					return 	arguments.callee();		
+				}
+
+				var day = judgeDay();
+				console.log(day);
+				var sum =0;
+				for(var i = 0; i<month-1; i++) {
+					sum = sum + monthArray[i];
+				}
+
+				document.write('你是'+year+'年'+'第'+(sum+day)+'天出生!');
+				
+			}
+
+			judgeDate();
+	}
+	</script>
+</body>
+</html>

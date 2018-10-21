@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>网页轮播</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#big_img_list {
+			width: 233px;
+			float: left;
+		}
+		#big_img_list p {
+			font-size: 12px;
+
+		}
+		.hide_img {
+			display: none;
+		}
+		#imglist {
+			width: 60px;
+			float: left;
+		}
+		#imglist a {
+			width: 54px;
+			height: 40px;
+			display: block;
+			margin-bottom: 10px;
+
+		}
+		#imglist img {
+			width: 54px;
+			height: 30px;
+		}
+		.hide_img {
+			display: none;
+		}
+		.show_small_img {
+			border: solid 2px red;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="big_img_list">
+		
+		<a href="http://www.miaov.com/2013/" class="show_img">
+			<img  src="https://raw.githubusercontent.com/wlfsmile/learnDemo/master/100du/img/content/img1.gif" alt="1" index="1">
+			<p>爸爸去哪儿啦~</p>
+		</a>
+		<a href="http://www.miaov.com/2013/" class="hide_img">
+			<img  src="https://raw.githubusercontent.com/wlfsmile/learnDemo/master/100du/img/content/img2.gif" alt="2" index="2">
+			<p>人像摄影中的光影感</p>
+		</a>
+		<a href="http://www.miaov.com/2013/" class="hide_img">
+			<img  src="https://raw.githubusercontent.com/wlfsmile/learnDemo/master/100du/img/content/img3.gif" alt="3" index="3">
+			<p>娇柔妩媚、美艳大方</p>
+		</a>
+		
+	</div>
+	<div id="imglist">
+
+		<a><img class="show_small_img"  src="https://raw.githubusercontent.com/wlfsmile/learnDemo/master/100du/img/content/img1.gif" alt="1" index="1"></a>
+		<a><img class="hide_small_img" src="https://raw.githubusercontent.com/wlfsmile/learnDemo/master/100du/img/content/img2.gif" alt="2" index="2"></a>
+		<a><img class="hide_small_img" src="https://raw.githubusercontent.com/wlfsmile/learnDemo/master/100du/img/content/img3.gif" alt="3" index="3"></a>
+		
+	</div>
+	<script type="text/javascript">
+		var showimgblock = document.getElementById('big_img_list');
+		var big_img  =  showimgblock.getElementsByTagName('a');
+		var small_img = document.getElementById('imglist').getElementsByTagName('img');
+
+		//点击时切换图片
+		for (var i = 0; i < small_img.length; i++) {
+			small_img[i].index = i;
+			small_img[i].onclick = function(){
+				for (var j = 0; j < small_img.length; j++) {
+					small_img[j].className = "hide_small_img";
+					big_img[j].className = "hide_img";
+
+				}
+				this.className = "show_small_img";
+				big_img[this.index].className = "show_img";
+
+			}
+
+		}
+		//自动播放图片
+		// var img = document.getElementsByTagName('img');
+		// var index = img.getAttribute('index');
+		var index = 1;
+		var timer;
+            //定义一个函数,自动轮播图片
+            function play() {
+               timer = setInterval(function showimg(){
+			
+			index+= 1;
+			if (index>3) {
+				index = 1;
+			}
+			for (var j = 0; j < small_img.length; j++) {
+					small_img[j].className = "hide_small_img";
+					big_img[j].className = "hide_img";
+
+				}
+				small_img[index-1].className = "show_small_img";
+				big_img[index-1].className = "show_img";
+
+
+		}, 1500)
+            }
+            //调用此函数
+            play();
+         function stop() {
+                clearInterval(timer);
+            }
+
+            //鼠标移出和移入图片时分别调用不同的函数
+            showimgblock.onmouseover = stop;
+            showimgblock.onmouseout = play;   
+		
+	</script>
+
+</body>
+</html>

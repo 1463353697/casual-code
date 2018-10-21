@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" > 
+<head> 
+    <title>通用的二级菜单</title> 
+    <style type="text/css"> 
+#menu {
+     
+    width:160px; 
+    height: 350px;
+    background-color: black; 
+
+    }
+#menu a {
+    display: block;
+    width: 160px;
+    height: 40px;
+    padding-top: 10px;
+    border-bottom: solid 0.1px #FFFFFF;
+    
+}
+#div1 { 
+display:none; 
+font-size:12px; 
+position:relative; 
+left:162px; 
+top:-351px; 
+background-color:black; 
+ 
+width:160px; 
+}
+#div1 a {
+    display: block;
+    width: 160px;
+    height: 40px;
+    padding-top: 10px;
+    border-bottom: solid 0.1px #FFFFFF;
+} 
+#div2 {
+display:none; 
+font-size:12px; 
+position:relative; 
+left:162px; 
+top:-300px; 
+background-color:black; 
+ 
+width:160px; 
+}
+#div2 a {
+    display: block;
+    width: 160px;
+    height: 40px;
+    padding-top: 10px;
+    border-bottom: solid 0.1px #FFFFFF;
+} 
+
+#div4 {
+ 
+display:none; 
+font-size:13px; 
+position:relative; 
+left:162px; 
+top:-200px; 
+background-color:black; 
+ 
+width:160px; 
+}
+#div4 a{
+    display: block;
+    width: 160px;
+    height: 40px;
+    padding-top: 10px;
+    border-bottom: solid 0.1px #FFFFFF;
+} 
+    </style> 
+    <script language="javascript" type="text/javascript"> 
+     //显示层 
+     function showDiv(divName) 
+     { 
+     document.getElementById(divName).style.display = "block"; 
+     } 
+     //隐藏层 
+     function hiddenDiv(divName) 
+     { 
+     document.getElementById(divName).style.display = "none"; 
+     } 
+    </script> 
+</head> 
+<body> 
+<div id="menu"> 
+    <a href="" onmouseover="showDiv('div1')" onmouseout="hiddenDiv('div1')">热门下载</a> 
+    <a href="" onmouseover="showDiv('div2')" onmouseout="hiddenDiv('div2')">界面设计</a> 
+    <a href="" >设计文章&教程</a> 
+    <a href="" onmouseover="showDiv('div4')" onmouseout="hiddenDiv('div4')">优设专题</a>
+    <a href="">职场&规划</a>
+    <a href="">酷站推荐</a>
+    <a href="">图书推荐</a>
+<div id="div1" onmouseover="showDiv(this.id)" onmouseout="hiddenDiv(this.id)"> 
+<a href="#">神器下载</a> 
+<a href="">字体下载</a>
+<a href="">PSD下载</a>
+<a href="">纹理&笔刷</a>
+</div> 
+<div id="div2" onmouseover="showDiv(this.id)" onmouseout="hiddenDiv(this.id)"> 
+<a href="#">网页设计</a> 
+<a href="#">移动端设计</a> 
+<a href="">图标设计</a>
+<a href="">Logo设计</a>
+<a href="">字体设计</a>
+
+</div> 
+<div id="div4" onmouseover="showDiv(this.id)" onmouseout="hiddenDiv(this.id)"> 
+<a href="#">主编专题</a> 
+<a href="#">优设专访</a> 
+ 
+</div> 
+
+</div> 
+</body> 
+</html>

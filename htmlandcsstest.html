@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	.logos{
+		/*position: absolute;;*/
+		left: 200px;
+		top: 200px;
+		width: 47px;
+		height: 47px;
+	}
+	.img1 {
+		/*position: absolute;*/
+		display: block;
+		/*left: 200px;
+		top: 200px;*/
+		width: 47px;
+		height: 47px;
+		background-color: pink;
+	}
+	
+	.img2 {
+		/*position: absolute;*/
+		display: block;
+		left: 5px;
+		top: 5px;
+		width: 37px;
+		height: 34px;
+		background-color: blue;
+	}
+	.hide {
+		display: none;
+	}
+	.img3{
+		width: 47px;
+		height: 47px;
+		display: none;
+	}
+	.hide {
+		width: 47px;
+		height: 47px;
+		display: none;
+	}
+
+		
+	</style>
+	<!-- <script type="text/javascript">
+    	function showimg(classname) {
+    		document.getElementsByClassName(classname).style.display = "block";
+    	}
+    	function hideimg(classname) {
+    		document.getElementsByClassName(classname).style.display = "none";
+    	}
+    </script> -->
+	
+</head>
+<body>
+	<div class="logos">
+	   <div  href="#" class="img1">
+		  <!-- <img src="whitecirle.png"> -->
+	   </div>
+	   <div  href="#" class="img2">
+		   <!-- <img src="logo.png"> -->
+	   </div>
+	   <div class="img3">
+	   	<!-- <img src="food.png"> -->
+	   </div>
+    </div>
+    <script type="text/javascript">
+    	var img2 = document.getElementsByClassName("img2");
+    	img2.onmouseover= function() {
+    		this.className="hide";
+    	}
+    	
+    </script>
+</body>
+</html>
